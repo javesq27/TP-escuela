@@ -9,40 +9,36 @@ public class Calificaciones {
         this.alumno= new ArrayList<Alumno>();
     }
 
-    public double getPromedio() {
+    public double getPromedioAlumno() {
         double pro = 0.0;
 
         if(!alumno.isEmpty()) {
             for(int i = 0; i<alumno.size(); i++) {
-                pro = pro + alumno.get(i).getNotas();
+                pro = alumno.get(i).getNota1() + alumno.get(i).getNota2() + alumno.get(i).getNota3();
             }
         }
        
-        return pro / alumno.size();
+        return pro / 3;
     }
 
-    public double getMejorNota() {
+    public double getMejorNotaAlumno() {
         double mejor = 0.0;
 
         if(!alumno.isEmpty()) {
             for (int i = 0; i<alumno.size(); i++) {
-                if(alumno.get(i).getNotas() > mejor) {
-                    mejor = alumno.get(i).getNotas();
+                mejor = Math.max(Math.max(alumno.get(i).getNota1(), alumno.get(i).getNota2()), alumno.get(i).getNota3());
                 }
             }
-        }
-       
         return mejor;
-    }
+        }  
+    
 
-    public double getPeorNota() {
+    public double getPeorNotaAlumno() {
         double peor = 11.0;
 
         if(!alumno.isEmpty()) {
             for (int i = 0; i<alumno.size(); i ++) {
-                if(alumno.get(i).getNotas() < peor) {
-                    peor = alumno.get(i).getNotas();
-                }
+                peor = Math.min(Math.min(alumno.get(i).getNota1(), alumno.get(i).getNota2()), alumno.get(i).getNota3());
             }
         }
         return peor;

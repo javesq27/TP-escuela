@@ -14,7 +14,7 @@ public class Escuela {
 
         if(!calificaciones.isEmpty()) {
             for (int i = 0; i<calificaciones.size(); i++) {
-                prom = prom + calificaciones.get(i).getPromedio();
+                prom = prom + calificaciones.get(i).getPromedioAlumno();
             }
         } 
         return prom / calificaciones.size(); 
@@ -25,8 +25,8 @@ public class Escuela {
 
         if(!calificaciones.isEmpty()) {
             for(int i = 0; i<calificaciones.size(); i ++) {
-                if(calificaciones.get(i).getMejorNota() > mejor) {
-                    mejor = calificaciones.get(i).getMejorNota();
+                if(calificaciones.get(i).getMejorNotaAlumno() > mejor) {
+                    mejor = calificaciones.get(i).getMejorNotaAlumno();
                 }
             }
         }
@@ -39,8 +39,8 @@ public class Escuela {
 
         if(!calificaciones.isEmpty()) {
             for(int i = 0; i<calificaciones.size(); i++) {
-                if(calificaciones.get(i).getPeorNota() < peor) {
-                    peor = calificaciones.get(i).getPeorNota();
+                if(calificaciones.get(i).getPeorNotaAlumno() < peor) {
+                    peor = calificaciones.get(i).getPeorNotaAlumno();
                 }
             }
         }
