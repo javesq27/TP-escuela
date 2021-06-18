@@ -11,30 +11,40 @@ public class Escuela {
 
     public double getPromedioEscuela() {
         double prom = 0.0;
-        for (int i = 0; i<calificaciones.size(); i++) {
-            prom = prom + calificaciones.get(i).getPromedio();
-        }
-        return prom / calificaciones.size(); 
 
+        if(!calificaciones.isEmpty()) {
+            for (int i = 0; i<calificaciones.size(); i++) {
+                prom = prom + calificaciones.get(i).getPromedio();
+            }
+        } 
+        return prom / calificaciones.size(); 
     }
 
     public double getMejorNotaEscuela() {
         double mejor = 0.0;
-        for(int i = 0; i<calificaciones.size(); i ++) {
-            if(calificaciones.get(i).getMejorNota() > mejor) {
-                mejor = calificaciones.get(i).getMejorNota();
+
+        if(!calificaciones.isEmpty()) {
+            for(int i = 0; i<calificaciones.size(); i ++) {
+                if(calificaciones.get(i).getMejorNota() > mejor) {
+                    mejor = calificaciones.get(i).getMejorNota();
+                }
             }
         }
+        
         return mejor;
     }
 
     public double getPeorNotaEscuela() {
-        double peor = 0.0;
-        for(int i = 0; i<calificaciones.size(); i++) {
-            if(calificaciones.get(i).getPeorNota() < peor) {
-                peor = calificaciones.get(i).getPeorNota();
+        double peor = 11.0;
+
+        if(!calificaciones.isEmpty()) {
+            for(int i = 0; i<calificaciones.size(); i++) {
+                if(calificaciones.get(i).getPeorNota() < peor) {
+                    peor = calificaciones.get(i).getPeorNota();
+                }
             }
         }
+       
         return peor;
     }
     

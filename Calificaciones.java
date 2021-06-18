@@ -12,29 +12,37 @@ public class Calificaciones {
     public double getPromedio() {
         double pro = 0.0;
 
-        for(int i = 0; i<alumno.size(); i++) {
-            pro = pro + alumno.get(i).getNotas();
+        if(!alumno.isEmpty()) {
+            for(int i = 0; i<alumno.size(); i++) {
+                pro = pro + alumno.get(i).getNotas();
+            }
         }
+       
         return pro / alumno.size();
     }
 
     public double getMejorNota() {
         double mejor = 0.0;
 
-        for (int i = 0; i<alumno.size(); i++) {
-            if(alumno.get(i).getNotas() > mejor) {
-                mejor = alumno.get(i).getNotas();
+        if(!alumno.isEmpty()) {
+            for (int i = 0; i<alumno.size(); i++) {
+                if(alumno.get(i).getNotas() > mejor) {
+                    mejor = alumno.get(i).getNotas();
+                }
             }
         }
+       
         return mejor;
     }
 
     public double getPeorNota() {
-        double peor = 0.0;
+        double peor = 11.0;
 
-        for (int i = 0; i<alumno.size(); i ++) {
-            if(alumno.get(i).getNotas() < peor) {
-                peor = alumno.get(i).getNotas();
+        if(!alumno.isEmpty()) {
+            for (int i = 0; i<alumno.size(); i ++) {
+                if(alumno.get(i).getNotas() < peor) {
+                    peor = alumno.get(i).getNotas();
+                }
             }
         }
         return peor;
