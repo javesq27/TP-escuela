@@ -15,7 +15,11 @@ public class Alumno {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+
+        if(nombre != null && nombre != "") {
+            this.nombre = nombre;
+        }
+        
     }
 
     public String getNombre() {
@@ -23,7 +27,10 @@ public class Alumno {
     }
 
     public void setMatricula(String matricula) {
-        this.matricula = matricula;
+
+        if(matricula != null && matricula != "") {
+            this.matricula = matricula;
+        }
     }
 
     public String getMatricula() {
@@ -31,7 +38,9 @@ public class Alumno {
     }
 
     public void setNota1(double nota1) {
-        this.nota1 = nota1;
+        if (nota1 > 0) {
+            this.nota1 = nota1;
+        }    
     } 
 
     public double getNota1() {
@@ -39,7 +48,10 @@ public class Alumno {
     }
 
     public void setNota2(double nota2) {
-        this.nota2 = nota2;
+        if(nota2 > 0) {
+            this.nota2 = nota2;
+        }
+        
     } 
 
     public double getNota2() {
@@ -47,11 +59,29 @@ public class Alumno {
     }
 
     public void setNota3(double nota3) {
-        this.nota3 = nota3;
+        if(nota3 > 0) {
+            this.nota3 = nota3;
+        }
+        
     } 
 
     public double getNota3() {
         return nota3;
+    }
+
+    public double getPromedioAlumno() {
+
+        return getNota1() + getNota2() + getNota3() / 3;
+    }
+
+    public double getMejorNotaAlumno() {
+
+        return Math.max(Math.max(getNota1(), getNota2()), getNota3());
+    }
+
+    public double getPeorNotaAlumno() {
+        
+        return Math.min(Math.min(getNota1(), getNota2()), getNota3());
     }
     
 }
