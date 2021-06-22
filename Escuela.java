@@ -13,9 +13,8 @@ public class Escuela {
         double prom = 0.0;
         
         for (int i = 0; i<alumno.size(); i++) {
-            if(!alumno.isEmpty()){
-                prom = prom + alumno.get(i).getPromedioAlumno();
-            }
+            
+            prom = prom + alumno.get(i).getPromedioAlumno();    
                 
         }
         
@@ -26,28 +25,27 @@ public class Escuela {
         double mejor = 0.0;
         
         for(int i = 0; i<alumno.size(); i ++) {
-            if(!alumno.isEmpty()) {
-
-                if(alumno.get(i).getMejorNotaAlumno() > mejor) {
-                    mejor = alumno.get(i).getMejorNotaAlumno();
-                }
-            }
+            
+            if(alumno.get(i).getMejorNotaAlumno() > mejor) {
+                
+                mejor = alumno.get(i).getMejorNotaAlumno();
+                }    
                 
         }
         
         return mejor;
     }
 
+    
     public double getPeorNotaEscuela() {
-        double peor = 11.0;
+        double peor = 10.0;
         
         for(int i = 0; i<alumno.size(); i++) {
-            if(!alumno.isEmpty()) {
-                if(alumno.get(i).getPeorNotaAlumno() < peor) {
-                    peor = alumno.get(i).getPeorNotaAlumno();
-                }
-
-            }
+            
+            if(alumno.get(i).getPeorNotaAlumno() < peor) {
+                
+                peor = alumno.get(i).getPeorNotaAlumno();
+            }     
                 
         }
         
