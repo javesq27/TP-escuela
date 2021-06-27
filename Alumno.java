@@ -6,7 +6,7 @@ public class Alumno {
     private ArrayList<Double> notas;
 
     
-    public Alumno(String nombre, String matricula, ArrayList<Double> notas) {
+    public Alumno(String nombre, String matricula) {
         this.nombre = nombre;
         this.matricula = matricula;
         this.notas = new ArrayList<Double>();
@@ -42,15 +42,25 @@ public class Alumno {
         return matricula;
     }
 
+    public void guardarNotas(Double nota) {
+
+        if(nota > 0.9 && nota < 10.1) {
+            
+            notas.add(nota);
+
+        }
+        
+    }
+
    
 
     public double getPromedioAlumno() {
         Double promedio = 0.0;
         
         for(int i = 0; i<notas.size(); i++) {
-            if(notas.get(i) > 0.9 && notas.get(i) < 10.1) {
-                promedio = promedio + notas.get(i);
-            }
+            
+            promedio = promedio + notas.get(i);
+            
            
         }
         return promedio / notas.size();
@@ -61,9 +71,7 @@ public class Alumno {
         Double mejor = 0.0;
         
         for(int i = 0; i<notas.size(); i++) {
-            if(notas.get(i) > 0.9 && notas.get(i) < 10.1 && notas.get(i) > mejor) {
-                mejor = notas.get(i);
-            }
+            mejor = Math.max(mejor, notas.get(i)); 
         }
         return mejor;
         
@@ -74,9 +82,7 @@ public class Alumno {
         Double peor = 10.1;
 
         for(int i = 0; i<notas.size(); i++) {
-            if(notas.get(i) > 0.9 && notas.get(i) < 10.1 && notas.get(i) < peor) {
-                peor = notas.get(i);
-            }
+            peor = Math.min(peor, notas.get(i));
         }
         return peor;    
         
