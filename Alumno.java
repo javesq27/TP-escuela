@@ -32,6 +32,5 @@ public class Alumno {
 
     public double getNotas() {
         return notas;
-    }
-    
+    }   
 }
