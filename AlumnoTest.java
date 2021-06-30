@@ -56,34 +56,28 @@ public class AlumnoTest {
     @Test 
     public void testAgregarNotasValidasEstudiante() {
         Alumno alumno = new Alumno("Victoria Baral", "44444");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(7.0);
-        assertEquals(1, notas.size());
-        alumno.guardarNotas(5.0);
-        assertEquals(2, notas.size());
+        assertEquals(7.0, alumno.getNotas());
 
     }
 
     @Test 
     public void testAgregarNotaInvalidaMayorADiez() {
         Alumno alumno = new Alumno("Luis Esquivel", "44445");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(30.0);
-        assertEquals(0, notas.size());
+        assertEquals(0.0, alumno.getNotas());
     }
 
     @Test 
     public void testAgregarNotaInvalidaMenorAUno() {
         Alumno alumno = new Alumno("Luis Esquivel", "44445");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(-60.5);
-        assertEquals(0, notas.size());
+        assertEquals(0.0, alumno.getNotas());
     }
 
     @Test 
     public void testNotaPromedioAlumno() {
         Alumno alumno = new Alumno("Victoria Baral", "44444");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(7.0);
         alumno.guardarNotas(8.5);
         alumno.guardarNotas(6.5);
@@ -93,21 +87,19 @@ public class AlumnoTest {
     }
 
     @Test 
-    public void testNotaPromedioAlumnoNoValida() {
+    public void testNotasInvalidasPromedioAlumnoMenoresAUno() {
         Alumno alumno = new Alumno("Victoria Baral", "44444");
-        ArrayList<Double> notas = new ArrayList<Double>();
-        alumno.guardarNotas(7.0);
-        alumno.guardarNotas(8.5);
-        alumno.guardarNotas(6.5);
-        alumno.guardarNotas(4.0); 
-        assertNotEquals(2.0, alumno.getPromedioAlumno());
+        alumno.guardarNotas(-7.0);
+        alumno.guardarNotas(-8.5);
+        alumno.guardarNotas(-6.5);
+        alumno.guardarNotas(-4.0); 
+        assertEquals(0.0, alumno.getPromedioAlumno());
 
     }
 
     @Test 
     public void testNotasInvalidasMayoresADiezPromedioAlumno() {
         Alumno alumno = new Alumno("Victoria Baral", "44444");
-        ArrayList<Double>notas = new ArrayList<Double>();
         alumno.guardarNotas(15.0);
         alumno.guardarNotas(40.6);
         alumno.guardarNotas(100.5);
@@ -118,7 +110,6 @@ public class AlumnoTest {
     @Test 
     public void testMejorNotaAlumno() {
         Alumno alumno = new Alumno("Luis Esquivel", "33434");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(6.0);
         alumno.guardarNotas(4.5);
         alumno.guardarNotas(9.0);
@@ -127,20 +118,18 @@ public class AlumnoTest {
     }
 
     @Test 
-    public void testMejorNotaAlumnoNoValida() {
+    public void testNotasInvalidasMayorADiezMejorNotaAlumno() {
         Alumno alumno = new Alumno("Luis Esquivel", "33434");
-        ArrayList<Double> notas = new ArrayList<Double>();
-        alumno.guardarNotas(6.0);
-        alumno.guardarNotas(4.5);
-        alumno.guardarNotas(9.0);
-        alumno.guardarNotas(7.0);    
-        assertNotEquals(6.0, alumno.getMejorNotaAlumno());
+        alumno.guardarNotas(36.0);
+        alumno.guardarNotas(54.5);
+        alumno.guardarNotas(889.0);
+        alumno.guardarNotas(67.0);    
+        assertEquals(0.0, alumno.getMejorNotaAlumno());
     }
 
     @Test 
     public void testNotasInvalidasMenorAUnoMejorNotaAlumno() {
         Alumno alumno = new Alumno("Victoria Baral", "33333");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(-89.5);
         alumno.guardarNotas(-40.9);
         alumno.guardarNotas(-130.7);
@@ -151,7 +140,6 @@ public class AlumnoTest {
     @Test 
     public void testPeorNotaAlumno() {
         Alumno alumno = new Alumno("Victoria Baral", "33333");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(9.5);
         alumno.guardarNotas(6.0);
         alumno.guardarNotas(3.0);
@@ -161,14 +149,13 @@ public class AlumnoTest {
     }
 
     @Test 
-    public void testPeorNotaAlumnoNoValida() {
+    public void testNotasInvalidasMenoresAUnoPeorNotaAlumno() {
         Alumno alumno = new Alumno("Victoria Baral", "33333");
-        ArrayList<Double> notas = new ArrayList<Double>();
-        alumno.guardarNotas(9.5);
-        alumno.guardarNotas(6.0);
-        alumno.guardarNotas(3.0);
-        alumno.guardarNotas(7.0);
-        assertNotEquals(7.0, alumno.getPeorNotaAlumno());
+        alumno.guardarNotas(-19.5);
+        alumno.guardarNotas(-46.0);
+        alumno.guardarNotas(-53.0);
+        alumno.guardarNotas(-37.0);
+        assertEquals(0.0, alumno.getPeorNotaAlumno());
         
     }
 
