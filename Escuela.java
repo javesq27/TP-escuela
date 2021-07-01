@@ -3,38 +3,52 @@ import java.util.List;
 
 public class Escuela {
 
-    private List<Calificaciones> calificaciones;
+    private List<Alumno> alumno;
 
     public Escuela() {
-        this.calificaciones = new ArrayList<Calificaciones>();
+        this.alumno = new ArrayList<Alumno>();
     }
 
     public double getPromedioEscuela() {
         double prom = 0.0;
-        for (int i = 0; i<calificaciones.size(); i++) {
-            prom = prom + calificaciones.get(i).getPromedio();
+        
+        for (int i = 0; i<alumno.size(); i++) {
+            
+            prom = prom + alumno.get(i).getPromedioAlumno();    
+                
         }
-        return prom / calificaciones.size(); 
-
+        
+        return prom / alumno.size(); 
     }
 
     public double getMejorNotaEscuela() {
         double mejor = 0.0;
-        for(int i = 0; i<calificaciones.size(); i ++) {
-            if(calificaciones.get(i).getMejorNota() > mejor) {
-                mejor = calificaciones.get(i).getMejorNota();
-            }
+        
+        for(int i = 0; i<alumno.size(); i ++) {
+            
+            if(alumno.get(i).getMejorNotaAlumno() > mejor) {
+                
+                mejor = alumno.get(i).getMejorNotaAlumno();
+                }    
+                
         }
+        
         return mejor;
     }
 
+    
     public double getPeorNotaEscuela() {
-        double peor = 0.0;
-        for(int i = 0; i<calificaciones.size(); i++) {
-            if(calificaciones.get(i).getPeorNota() < peor) {
-                peor = calificaciones.get(i).getPeorNota();
-            }
+        double peor = 10.0;
+        
+        for(int i = 0; i<alumno.size(); i++) {
+            
+            if(alumno.get(i).getPeorNotaAlumno() < peor) {
+                
+                peor = alumno.get(i).getPeorNotaAlumno();
+            }     
+                
         }
+        
         return peor;
     }
     
