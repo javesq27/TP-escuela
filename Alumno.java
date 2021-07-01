@@ -52,6 +52,10 @@ public class Alumno {
         
     }
 
+    public ArrayList<Double> getNotas() {
+        return notas;
+    }
+
    
 
     public double getPromedioAlumno() {

@@ -12,7 +12,6 @@ public class GUI implements ActionListener{
     private JPanel panel;
 
     public GUI() {
-
         frame = new JFrame();
         JButton button = new JButton("Ingresar");
         button.addActionListener(this);
@@ -33,7 +32,6 @@ public class GUI implements ActionListener{
     public static void main(String[] args){
         new GUI();
     }
-
     @Override
     public void actionPerformed(ActionEvent e){
         count++;
