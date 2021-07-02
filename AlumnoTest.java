@@ -57,7 +57,9 @@ public class AlumnoTest {
     public void testAgregarNotasValidasEstudiante() {
         Alumno alumno = new Alumno("Victoria Baral", "44444");
         alumno.guardarNotas(7.0);
-        assertEquals(7.0, alumno.getNotas());
+        assertEquals(7.0, alumno.getNotas().get(0));
+        alumno.guardarNotas(6.0);
+        assertEquals(6.0, alumno.getNotas().get(1));
 
     }
 
@@ -65,14 +67,14 @@ public class AlumnoTest {
     public void testAgregarNotaInvalidaMayorADiez() {
         Alumno alumno = new Alumno("Luis Esquivel", "44445");
         alumno.guardarNotas(30.0);
-        assertEquals(0.0, alumno.getNotas());
+        assertEquals(0, alumno.getNotas().size());
     }
 
     @Test 
     public void testAgregarNotaInvalidaMenorAUno() {
         Alumno alumno = new Alumno("Luis Esquivel", "44445");
         alumno.guardarNotas(-60.5);
-        assertEquals(0.0, alumno.getNotas());
+        assertEquals(0, alumno.getNotas().size());
     }
 
     @Test 
@@ -162,7 +164,6 @@ public class AlumnoTest {
     @Test 
     public void testNotasInvalidasMayoresADiezPeorNotaAlumno() {
         Alumno alumno = new Alumno("Luis Esquivel", "33334");
-        ArrayList<Double> notas = new ArrayList<Double>();
         alumno.guardarNotas(89.5);
         alumno.guardarNotas(40.9);
         alumno.guardarNotas(130.7);
