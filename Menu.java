@@ -29,7 +29,7 @@ public class Menu implements OpcionMenu {
             System.out.println("1.Agregar alumnos");
             System.out.println("2.Visualizar lista Alumnos");
             System.out.println("3.Agregar nota alumnos");
-            System.out.println("4.Ver lista Escuelas");
+            System.out.println("4.Ver lista Escuela");
             System.out.println("5.Salir");
 
             try{
@@ -39,16 +39,17 @@ public class Menu implements OpcionMenu {
 
                 switch(option){
                     case 1:
-                        System.out.println("Lista Alumnos");
+                        System.out.println("Agregar Alumnos");
+                        
                         break;
                     case 2:
-                        System.out.println("Agregar Alumnos");
+                        System.out.println("Lista Alumnos");
                         break;
                     case 3:
                         System.out.println("Agregar nota a Alumno");
                         break;
                     case 4:
-                        System.out.println("Ver lista Escuelas");
+                        System.out.println("Ver lista Escuela");
                         break;
                     case 5:
                         exit=true;
@@ -65,27 +66,53 @@ public class Menu implements OpcionMenu {
     @Override
     public void AddName() {
         System.out.println("Registrar alumno");
-        
+        Scanner keyboard = new Scanner(System.in);
+        String valor = null;
+        System.out.print("Ingresar Alumno: ");
+        valor = keyboard.nextString();
+        names.add(valor);
     }
 
     @Override
-    public void showstudent() {
-        System.out.println("Lista Alumnos \n" + );
-        
+    public void searchstudent() {
+        System.out.println("Buscar Alumno");
+        Scanner keyboard = new Scanner(System.in);
+        String valor;
+        int indice;
+        System.out.print("Ingresar nombre de Alumno:");
+        valor = keyboard.nextString();
+        indice = names.indexOf(valor);
+        if (indice != -1){
+            System.out.println("Nombre encontrado en la posición: " + indice);
+        }else{
+            System.out.println("Nombre no registrado");
+        }
     }
 
     @Override
     public void AddNotas() {
+        System.out.println("Registrar Notas");
+        Scanner keyboard = new Scanner(System.in);
+        Double valor2 = 0;
+        System.out.print("Ingresar Nota: ");
+        valor2 = keyboard.nextDouble();
+        califications.add(valor2);
 
-        
     }
     @Override
     public void showSchools() {
-    
+        if (!names.isEmpty() && !califications.isEmpty()){
+            System.out.println("Lista Escuela");
+        for (int i = 0; i < names.size(); i++){
+            System.out.println(names.get(i));
+        }
+        }else{
+            System.out.println("No hay nadie registrado en la Escuela");
+        }
         
     }
     @Override
     public void closeapp() {
-                
+
     }
 }
