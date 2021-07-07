@@ -40,11 +40,16 @@ def register():
 def show():
     print("Lista Alumnos")
     for alumno in lista:
-        print("Matricula: \n", alumno.matricula,  "Nombre: \n" + alumno.nombre, "Edad: \n", alumno.edad, "Nota: \n", alumno.nota)
+        print("Matricula: \n", alumno.matricula,  "Nombre: \n" , alumno.nombre, "Edad: \n", alumno.edad, "Nota: \n", alumno.nota)
         
 
 def search():
     print("Buscar alumno")
+    matricula = input("Ingrese la Matrícula o el Nombre del alumno que desea buscar: ")
+    for alumno in lista:
+        if alumno.matricula == matricula or alumno.nombre == matricula:
+            print(alumno.nombre, "-", alumno.matricula,"-", alumno.edad, "-", alumno.nota)
+
 
 def closeapp():
     print("Adiós!")
