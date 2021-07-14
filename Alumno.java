@@ -56,7 +56,7 @@ public class Alumno {
         return notas;
     }
 
-   
+
 
     public double getPromedioAlumno() {
         Double promedio = 0.0;
@@ -65,7 +65,7 @@ public class Alumno {
             
             promedio = promedio + notas.get(i);
             
-           
+
         }
         return promedio / notas.size();
     }
