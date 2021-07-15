@@ -1,13 +1,13 @@
 public class OptionExit implements Option{
     
     @Override
-    String name() 
+    public String name()
     {
         return "Salir";
     }
 
     @Override
-    void action(School school)
+    public void action(Escuela school)
     {
         System.exit(0);
     }
