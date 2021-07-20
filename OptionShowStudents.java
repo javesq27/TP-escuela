@@ -17,5 +17,5 @@ public class OptionShowStudents  implements Option{
         for (Alumno alumno: school.getAlumnos()) {
             printer.print(alumno.toString());
         }
-   }
+    }
 }
