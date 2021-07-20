@@ -7,6 +7,8 @@ public class Menu {
     {
         this.printer = printer;
         this.reader = reader;
+        this.options.add(new OptionAddStudent(printer, reader));
+        this.options.add(new OptionAddGradeToStudent(printer,reader));
         this.options.add(new OptionShowStudents(printer));
         this.options.add(new OptionExit());
 
