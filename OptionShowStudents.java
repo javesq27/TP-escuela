@@ -1,15 +1,21 @@
 public class OptionShowStudents  implements Option{
-    @Override
-    String name() 
-    {
-        return "Mostrar notas de los alumnos";
+
+    private Printer printer;
+
+    public OptionShowStudents(Printer printer) {
+        this.printer = printer;
     }
 
     @Override
-    void action(School school)
-    for (Student s : school.student())
+    public String name() 
     {
-        System.out.println("");
+        return "Mostrar listado de alumnos";
     }
-    
+
+    @Override
+    public void action(Escuela school) {
+        for (Alumno alumno: school.getAlumnos()) {
+            printer.print(alumno.toString());
+        }
+   }
 }

@@ -91,5 +91,9 @@ public class Alumno {
         return peor;    
         
     }
+
+    public String toString() {
+        return "Nombre: " + nombre + "Matricula: " + matricula + "Notas: " + notas;
+    }
     
 }

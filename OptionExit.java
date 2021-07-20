@@ -7,10 +7,10 @@ public class OptionExit implements Option{
     }
 
     @Override
-    public void action(Escuela school)
+    public void action(Escuela school) 
     {
         System.exit(0);
     }
 
-    }
+}
 

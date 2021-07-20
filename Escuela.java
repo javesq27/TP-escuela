@@ -3,32 +3,41 @@ import java.util.List;
 
 public class Escuela {
 
-    private List<Alumno> alumno;
+    private List<Alumno> alumnos;
 
     public Escuela() {
-        this.alumno = new ArrayList<Alumno>();
+        this.alumnos = new ArrayList<Alumno>();
+    }
+
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void guardarAlumnos(Alumno a) {
+        alumnos.add(a);
+
     }
 
     public double getPromedioEscuela() {
         double prom = 0.0;
         
-        for (int i = 0; i<alumno.size(); i++) {
+        for (int i = 0; i<alumnos.size(); i++) {
             
-            prom = prom + alumno.get(i).getPromedioAlumno();    
+            prom = prom + alumnos.get(i).getPromedioAlumno();    
                 
         }
         
-        return prom / alumno.size(); 
+        return prom / alumnos.size(); 
     }
 
     public double getMejorNotaEscuela() {
         double mejor = 0.0;
         
-        for(int i = 0; i<alumno.size(); i ++) {
+        for(int i = 0; i<alumnos.size(); i ++) {
             
-            if(alumno.get(i).getMejorNotaAlumno() > mejor) {
+            if(alumnos.get(i).getMejorNotaAlumno() > mejor) {
                 
-                mejor = alumno.get(i).getMejorNotaAlumno();
+                mejor = alumnos.get(i).getMejorNotaAlumno();
                 }    
                 
         }
@@ -40,16 +49,26 @@ public class Escuela {
     public double getPeorNotaEscuela() {
         double peor = 10.0;
         
-        for(int i = 0; i<alumno.size(); i++) {
+        for(int i = 0; i<alumnos.size(); i++) {
             
-            if(alumno.get(i).getPeorNotaAlumno() < peor) {
+            if(alumnos.get(i).getPeorNotaAlumno() < peor) {
                 
-                peor = alumno.get(i).getPeorNotaAlumno();
+                peor = alumnos.get(i).getPeorNotaAlumno();
             }     
                 
         }
         
         return peor;
+    }
+
+    public Alumno getAlumnoPorMatricula(String matricula) {
+        Alumno alumnoEncontrado = null;
+        for(Alumno alumno: alumnos) {
+            if (matricula.equalsIgnoreCase(alumno.getMatricula())) {
+                alumnoEncontrado = alumno;
+            }
+        }
+        return alumnoEncontrado;
     }
     
 }

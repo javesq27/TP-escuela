@@ -1,33 +1,41 @@
+import java.util.ArrayList;
+
+
 public class Menu {
 
-    public Menu(Printer printer) 
+    public Menu(Printer printer, Reader reader) 
     {
         this.printer = printer;
+        this.reader = reader;
+        this.options.add(new OptionShowStudents(printer));
+        this.options.add(new OptionExit());
+
     }
     
     public void show(){
-        for(Option o: options)
-        {
-            System.out.println("" + i " - " + o.name());
-            i++;
+        for (int i = 0; i < options.size(); i++) {
+            Option o = options.get(i);
+            printer.print(i + ". " + o.name());
         }
     }
 
     public String readOption()
     {
-        Scanner s = new Scanner(System.in);
-        return s.next();
+        return reader.readOption();
     }
 
-    public void run(School school)
+    public void run(Escuela school)
     {
         while(true)
         {
             show();
             String userOption = readOption();
-            int optionNumber = Integer.parse(userOption);
+            int optionNumber = Integer.parseInt(userOption);
             options.get(optionNumber).action(school);
         }
     }
+
+    private Reader reader;
+    private Printer printer;
     private ArrayList<Option> options = new ArrayList<>();
 }
